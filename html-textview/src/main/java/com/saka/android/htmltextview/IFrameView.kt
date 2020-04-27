@@ -1,4 +1,4 @@
-package com.saka.android.html_textview
+package com.saka.android.htmltextview
 
 import android.annotation.SuppressLint
 import android.content.Context

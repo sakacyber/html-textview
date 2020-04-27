@@ -1,4 +1,4 @@
-package com.saka.android.html_textview
+package com.saka.android.htmltextview
 
 import android.content.Context
 import android.graphics.Color

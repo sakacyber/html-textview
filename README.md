@@ -20,7 +20,7 @@ HtmlTextView is availble on
 to use HtmlTextView:
 
 ```
- <com.saka.android.html_textview.HtmlTextView
+ <com.saka.android.htmltextview.HtmlTextView
         android:id="@+id/htmlTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

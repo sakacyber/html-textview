@@ -2,7 +2,6 @@ package com.saka.android.htmltextview
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.saka.android.html_textview.HtmlTextView
 
 class MainActivity : AppCompatActivity() {
 

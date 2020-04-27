@@ -1,4 +1,4 @@
-package com.saka.android.html_textview
+package com.saka.android.htmltextview
 
 import android.content.Context
 import android.util.AttributeSet
@@ -19,6 +19,6 @@ class HtmlTextView @JvmOverloads constructor(
         val elementContent = document.body()
         element = elementContent
         EManager.appendView(this, element.children())
-//        invalidate()
+        invalidate()
     }
 }

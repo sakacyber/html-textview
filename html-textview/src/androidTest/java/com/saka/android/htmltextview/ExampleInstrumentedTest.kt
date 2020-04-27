@@ -1,4 +1,4 @@
-package com.saka.android.html_textview
+package com.saka.android.htmltextview
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
