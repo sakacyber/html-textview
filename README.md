@@ -1,33 +1,35 @@
 # HtmlTextView
 
-HtmlTextView is a library for display html content in android.
+**HtmlTextView** is a library for display html content in android.
 
-It currently supports tags:
+It currently supports tags </>:
 
-* text
-* image
+* p
+* img
 * div
 * blockquote
 * iframe
 
 ## Usage
-HtmlTextView is availble on
+**HtmlTextView** is availble on jitpack.
+
+Add dependency:
 
 ```
     implementation 'com.github.SakaGamer:html-textview:1.0.0'
 ```
+
 ## Quick Start
-to use HtmlTextView:
+to use **HtmlTextView**:
 
 ```
+// in xml
  <com.saka.android.htmltextview.HtmlTextView
         android:id="@+id/htmlTextView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="16dp" />
 
-
 // in activity or fragment
 htmlTextView.setText(html)
-
 ```
