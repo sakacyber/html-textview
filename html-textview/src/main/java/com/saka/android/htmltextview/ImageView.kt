@@ -2,6 +2,8 @@ package com.saka.android.htmltextview
 
 import android.content.Context
 import android.util.AttributeSet
+import android.view.View
+import android.widget.ImageView
 import coil.api.load
 
 class ImageView @JvmOverloads constructor(
@@ -15,16 +17,15 @@ class ImageView @JvmOverloads constructor(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-        val imageView = android.widget.ImageView(context)
-        imageView.layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.MATCH_PARENT
-        )
+        orientation = VERTICAL
+        setImage()
+    }
+
+    private fun setImage() {
+        val imageView = View.inflate(context, R.layout.image_view, null) as ImageView
         imageView.load(link) {
             error(R.drawable.bg_placeholder)
         }
-        imageView.adjustViewBounds = true
-        imageView.setPadding(0, 24, 0, 24)
         addView(imageView)
     }
 

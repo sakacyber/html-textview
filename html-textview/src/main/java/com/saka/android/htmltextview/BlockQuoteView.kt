@@ -1,10 +1,11 @@
 package com.saka.android.htmltextview
 
 import android.content.Context
-import android.graphics.Color
 import android.graphics.Typeface
 import android.util.AttributeSet
+import android.view.View
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 
 class BlockQuoteView @JvmOverloads constructor(
     context: Context,
@@ -22,23 +23,15 @@ class BlockQuoteView @JvmOverloads constructor(
             EManager.appendView(this, element.children())
         }
         if (element.text().isNotBlank()) {
-            setText(element.text())
+            setText()
         }
     }
 
-    private fun setText(content: String?) {
-        val textView = TextView(context).apply {
-            layoutParams = LayoutParams(
-                LayoutParams.MATCH_PARENT,
-                LayoutParams.WRAP_CONTENT
-            )
-            setLineSpacing(EManager.dpToPx(context, 12), 1f)
-            setPadding(0, 24, 0, 24)
-            setTextColor(Color.BLACK)
-            setTypeface(typeface, Typeface.ITALIC)
-            textSize = 18f
-            text = content
-        }
-        addView(textView)
+    private fun setText() {
+        val paragraphView = View.inflate(context, R.layout.paragraph_view, null) as TextView
+        paragraphView.setTypeface(paragraphView.typeface, Typeface.ITALIC)
+        paragraphView.text =
+            HtmlCompat.fromHtml(element.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        addView(paragraphView)
     }
 }

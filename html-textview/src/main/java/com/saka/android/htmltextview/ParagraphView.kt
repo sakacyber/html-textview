@@ -1,9 +1,10 @@
 package com.saka.android.htmltextview
 
 import android.content.Context
-import android.graphics.Color
 import android.util.AttributeSet
+import android.view.View
 import android.widget.TextView
+import androidx.core.text.HtmlCompat
 
 class ParagraphView @JvmOverloads constructor(
     context: Context,
@@ -21,22 +22,14 @@ class ParagraphView @JvmOverloads constructor(
             EManager.appendView(this, element.children())
         }
         if (element.text().isNotEmpty()) {
-            setText(element.text())
+            setText()
         }
     }
 
-    private fun setText(text: String?) {
-        val textView = TextView(context)
-        textView.layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        textView.textSize = 18f
-        val lineSpacing = EManager.dpToPx(context, 12)
-        textView.setLineSpacing(lineSpacing, 1f)
-        textView.setPadding(0, 24, 0, 24)
-        textView.text = text
-        textView.setTextColor(Color.BLACK)
-        addView(textView)
+    private fun setText() {
+        val paragraphView = View.inflate(context, R.layout.paragraph_view, null) as TextView
+        paragraphView.text =
+            HtmlCompat.fromHtml(element.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        addView(paragraphView)
     }
 }

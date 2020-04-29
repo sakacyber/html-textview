@@ -13,13 +13,22 @@ class IFrameView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : BaseElement(context, attrs, defStyleAttr) {
 
-    @SuppressLint("SetJavaScriptEnabled")
     override fun render() {
         layoutParams = LayoutParams(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-        val webView = WebView(context)
+        orientation = VERTICAL
+        setContent()
+    }
+
+    @SuppressLint("SetJavaScriptEnabled")
+    private fun setContent() {
+        val webView = WebViewCompat(context)
+        webView.layoutParams = LayoutParams(
+            LayoutParams.MATCH_PARENT,
+            LayoutParams.WRAP_CONTENT
+        )
         webView.webViewClient = object : WebViewClient() {
             override fun shouldOverrideUrlLoading(
                 view: WebView,
@@ -31,13 +40,6 @@ class IFrameView @JvmOverloads constructor(
         webView.settings.javaScriptEnabled = true
         element.attr("width", "100%")
         webView.loadData(element.toString(), "text/html", "UTF-8")
-        webView.layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
         addView(webView)
     }
-
-    private val link: String?
-        get() = element.attr("abs:src")
 }
