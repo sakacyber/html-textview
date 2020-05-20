@@ -55,6 +55,7 @@ to use **HtmlTextView**:
     android:layout_height="match_parent"
     android:padding="16dp" />
 
+
 // in activity or fragment
 htmlTextView.setText(html)
 ```

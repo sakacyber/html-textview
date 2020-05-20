@@ -13,11 +13,11 @@ class ParagraphView @JvmOverloads constructor(
 ) : BaseElement(context, attrs, defStyleAttr) {
 
     override fun render() {
+        orientation = VERTICAL
         layoutParams = LayoutParams(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-        orientation = VERTICAL
         if (element.children().isNotEmpty()) {
             EManager.appendView(this, element.children())
         }

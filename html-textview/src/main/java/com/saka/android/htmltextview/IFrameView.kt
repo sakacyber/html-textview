@@ -14,11 +14,11 @@ class IFrameView @JvmOverloads constructor(
 ) : BaseElement(context, attrs, defStyleAttr) {
 
     override fun render() {
+        orientation = VERTICAL
         layoutParams = LayoutParams(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-        orientation = VERTICAL
         setContent()
     }
 

@@ -11,10 +11,6 @@ abstract class BaseElement(
     defStyleAttr: Int = 0
 ) : LinearLayout(context, attrs, defStyleAttr) {
 
-//    init {
-//        this.render()
-//    }
-
     override fun onAttachedToWindow() {
         super.onAttachedToWindow()
         render()
