@@ -1,3 +1,5 @@
+[![](https://jitpack.io/v/SakaGamer/html-textview.svg)](https://jitpack.io/#SakaGamer/html-textview)
+
 # HtmlTextView
 
 **HtmlTextView** is a library for display html content in android.
