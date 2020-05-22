@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<com.saka.android.htmltextview.RoundImageView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginVertical="12dp"
-    android:adjustViewBounds="true"
-    android:contentDescription="@string/app_name"
-    tools:src="@tools:sample/backgrounds/scenic" />
