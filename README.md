@@ -2,7 +2,7 @@
 
 # HtmlTextView
 
-**HtmlTextView** is a library for display html content in android.
+**HtmlTextView** is a library for display html content in android. It also support dark mode.
 
 Support tag base on build in [Html.fromHtml (String source,
                 int flags)](https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String,%20int)) in android
@@ -20,12 +20,6 @@ It currently supports tags </>:
 * ```<div align="...">```
 * ```<em>```
 * ```<font size="..." color="..." face="...">```
-* ```<h1>```
-* ```<h2>```
-* ```<h3>```
-* ```<h4>```
-* ```<h5>```
-* ```<h6>```
 * ```<i>```
 * ```<img src="...">```
 * ```<p>```
@@ -43,7 +37,7 @@ It currently supports tags </>:
 Add dependency:
 
 ```
-implementation 'com.github.SakaGamer:html-textview:1.0.3'
+implementation 'com.github.SakaGamer:html-textview:1.0.4'
 ```
 
 ## Usage

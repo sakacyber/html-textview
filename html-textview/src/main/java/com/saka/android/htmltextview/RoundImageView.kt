@@ -5,13 +5,12 @@ import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
-import android.view.View
 
-class ImageView @JvmOverloads constructor(
+class RoundImageView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0
-) : BaseElement(context, attrs, defStyleAttr) {
+) : androidx.appcompat.widget.AppCompatImageView(context, attrs, defStyleAttr) {
 
     private var radius = DEFAULT_CORNER
     private var rect: RectF = RectF()
@@ -23,24 +22,6 @@ class ImageView @JvmOverloads constructor(
         canvas?.clipPath(path)
         super.onDraw(canvas)
     }
-
-    override fun render() {
-        orientation = VERTICAL
-        layoutParams = LayoutParams(
-            LayoutParams.MATCH_PARENT,
-            LayoutParams.WRAP_CONTENT
-        )
-        setImage()
-    }
-
-    private fun setImage() {
-        val imageView = View.inflate(context, R.layout.image_view, null) as RoundImageView
-        imageView.load(link)
-        addView(imageView)
-    }
-
-    private val link: String?
-        get() = element.attr("abs:src")
 
     companion object {
         private const val DEFAULT_CORNER = 18F
