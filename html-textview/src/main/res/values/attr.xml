@@ -2,7 +2,7 @@
 <resources>
 
     <declare-styleable name="HtmlTextView">
-        <attr name="htmlTextSize" format="reference|float" />
+        <attr name="htmlTextSize" format="dimension" />
         <attr name="htmlTextColor" format="reference|color" />
         <attr name="htmlLineSpacing" format="reference|float" />
     </declare-styleable>

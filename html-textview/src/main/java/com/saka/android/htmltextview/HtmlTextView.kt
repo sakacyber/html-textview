@@ -13,7 +13,7 @@ class HtmlTextView @JvmOverloads constructor(
 
     init {
         val att = context.obtainStyledAttributes(R.styleable.HtmlTextView)
-        val textSize = att.getFloat(R.styleable.HtmlTextView_htmlTextSize, 16f)
+        val textSize = att.getDimension(R.styleable.HtmlTextView_htmlTextSize, 16f)
         val textColor = att.getColor(R.styleable.HtmlTextView_htmlTextColor, ContextCompat.getColor(context, R.color.colorTextPrimary))
         val lineSpacing = att.getFloat(R.styleable.HtmlTextView_htmlLineSpacing, 1.2f)
         HtmlConfig.htmlTextSize = textSize
