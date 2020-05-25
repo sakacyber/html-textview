@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="HtmlTextView">
+        <attr name="htmlTextSize" format="reference|float" />
+        <attr name="htmlTextColor" format="reference|color" />
+        <attr name="htmlLineSpacing" format="reference|float" />
+    </declare-styleable>
+
+</resources>

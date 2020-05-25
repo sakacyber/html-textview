@@ -30,6 +30,9 @@ class ParagraphView @JvmOverloads constructor(
         val paragraphView = View.inflate(context, R.layout.paragraph_view, null) as TextView
         paragraphView.text =
             HtmlCompat.fromHtml(element.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        paragraphView.textSize = HtmlConfig.htmlTextSize
+        paragraphView.setLineSpacing(HtmlConfig.htmlLineSpacing, 1f)
+        paragraphView.setTextColor(HtmlConfig.htmlTextColor)
         addView(paragraphView)
     }
 }

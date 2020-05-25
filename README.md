@@ -37,7 +37,7 @@ It currently supports tags </>:
 Add dependency:
 
 ```
-implementation 'com.github.SakaGamer:html-textview:1.0.6'
+implementation 'com.github.SakaGamer:html-textview:1.0.7'
 ```
 
 ## Usage

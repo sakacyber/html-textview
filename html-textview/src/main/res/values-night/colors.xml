@@ -2,5 +2,7 @@
 <resources>
 
     <color name="colorBackground">#121212</color>
+    <color name="colorTextPrimary">#DEFFFFFF</color>
+    <color name="colorTextSecondary">#99FFFFFF</color>
 
 </resources>
