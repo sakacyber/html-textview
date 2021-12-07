@@ -26,13 +26,12 @@ class ImageView @JvmOverloads constructor(
     private fun setImage() {
         val roundImageView = RoundImageView(context)
         roundImageView.adjustViewBounds = true
+        roundImageView.minimumHeight = 120
         roundImageView.load(link)
         val layoutParams = LayoutParams(-1, -2)
         layoutParams.setMargins(0, 18, 0, 18)
         addView(roundImageView, layoutParams)
-        setOnClickListener {
-            startPreviewImage()
-        }
+        setOnClickListener { startPreviewImage() }
     }
 
     private fun startPreviewImage() {
