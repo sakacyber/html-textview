@@ -1,17 +1,19 @@
-package com.saka.android.htmltextview
+package com.saka.android.htmltextview.element
 
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
-import android.view.View
 import android.widget.TextView
-import androidx.core.text.HtmlCompat
+import com.saka.android.htmltextview.utility.EManager
+import org.jsoup.nodes.Element
 
 class BlockQuoteView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : BaseElement(context, attrs, defStyleAttr) {
+    defStyleAttr: Int = 0,
+    element: Element? = null,
+    content: String = ""
+) : BaseElement(context, attrs, defStyleAttr, element, content) {
 
     override fun render() {
         orientation = VERTICAL
@@ -19,19 +21,17 @@ class BlockQuoteView @JvmOverloads constructor(
             LayoutParams.MATCH_PARENT,
             LayoutParams.WRAP_CONTENT
         )
-        if (element.children().isNotEmpty()) {
-            EManager.appendView(this, element.children())
+        val children = element?.children()
+        if (children?.isNotEmpty() == true) {
+            EManager.appendView(this, children, htmlContent)
         }
-        if (element.text().isNotBlank()) {
-            setText()
-        }
+        setText()
     }
 
     private fun setText() {
-        val paragraphView = View.inflate(context, R.layout.paragraph_view, null) as TextView
+        val paragraphView = TextView(context)
         paragraphView.setTypeface(paragraphView.typeface, Typeface.ITALIC)
-        paragraphView.text =
-            HtmlCompat.fromHtml(element.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
+        paragraphView.text = element?.text()
         addView(paragraphView)
     }
 }

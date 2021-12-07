@@ -2,24 +2,47 @@ package com.saka.android.htmltextview
 
 import android.content.Context
 import android.util.AttributeSet
-import androidx.core.content.ContextCompat
+import android.util.Log
+import com.saka.android.htmltextview.element.BaseElement
+import com.saka.android.htmltextview.utility.Conf
+import com.saka.android.htmltextview.utility.EManager
 import org.jsoup.Jsoup
+import org.jsoup.nodes.Element
 
 class HtmlTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0
-) : BaseElement(context, attrs, defStyleAttr) {
+    defStyleAttr: Int = 0,
+    element: Element? = null
+) : BaseElement(context, attrs, defStyleAttr, element) {
 
     init {
-        val att = context.obtainStyledAttributes(R.styleable.HtmlTextView)
-        val textSize = att.getDimension(R.styleable.HtmlTextView_htmlTextSize, 16f)
-        val textColor = att.getColor(R.styleable.HtmlTextView_htmlTextColor, ContextCompat.getColor(context, R.color.colorTextPrimary))
-        val lineSpacing = att.getFloat(R.styleable.HtmlTextView_htmlLineSpacing, 1.2f)
-        HtmlConfig.htmlTextSize = textSize
-        HtmlConfig.htmlTextColor = textColor
-        HtmlConfig.htmlLineSpacing = lineSpacing
-        att.recycle()
+        val typeArray = context.obtainStyledAttributes(
+            attrs,
+            R.styleable.HtmlTextView
+        )
+        Conf.textSize =
+            typeArray.getDimension(
+                R.styleable.HtmlTextView_htmlTextSize,
+                Conf.DEF_TEXT_SIZE
+            )
+        Conf.textLineSpacing =
+            typeArray.getDimension(
+                R.styleable.HtmlTextView_htmlLineSpacing,
+                Conf.DEF_LINE_SPACING
+            )
+        Conf.imageRoundCorner =
+            typeArray.getDimension(
+                R.styleable.HtmlTextView_htmlImageRound,
+                Conf.DEF_IMAGE_ROUND
+            )
+        Conf.textPadding =
+            typeArray.getDimension(
+                R.styleable.HtmlTextView_htmlTextPadding,
+                Conf.DEF_PADDING
+            )
+        htmlContent = typeArray.getString(R.styleable.HtmlTextView_htmlContent) ?: ""
+        typeArray.recycle()
     }
 
     override fun render() {
@@ -27,10 +50,13 @@ class HtmlTextView @JvmOverloads constructor(
     }
 
     fun setText(html: String?) {
-        val document = Jsoup.parse(html)
+        htmlContent = html ?: return
+        val document = Jsoup.parse(htmlContent)
         val elementContent = document.body()
         element = elementContent
-        EManager.appendView(this, element.children())
-        invalidate()
+        val children = element?.children()
+        if (!children.isNullOrEmpty()) {
+            EManager.appendView(this, children, htmlContent)
+        }
     }
 }

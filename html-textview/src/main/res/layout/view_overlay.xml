@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageClose"-->
+    <!--        android:layout_width="48dp"-->
+    <!--        android:layout_height="48dp"-->
+    <!--        android:background="@drawable/bg_ripple_effect"-->
+    <!--        android:contentDescription="@string/imageDescription"-->
+    <!--        android:padding="12dp"-->
+    <!--        android:src="@drawable/ic_close_24" />-->
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorTopBarOverlay"
+        android:paddingTop="24dp">
+
+        <ImageView
+            android:id="@+id/imageMore"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:background="@drawable/bg_ripple_effect"
+            android:contentDescription="@string/imageDescription"
+            android:padding="12dp"
+            android:src="@drawable/ic_more_vert_24" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/viewIndex"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/colorTopBarOverlay"
+        android:gravity="center"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        tools:text="1/3" />
+
+</FrameLayout>

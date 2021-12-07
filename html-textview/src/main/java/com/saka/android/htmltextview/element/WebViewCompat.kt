@@ -1,11 +1,11 @@
-package com.saka.android.htmltextview
+package com.saka.android.htmltextview.element
 
 import android.content.Context
 import android.content.res.Configuration
 import android.util.AttributeSet
 import android.webkit.WebView
 
-class WebViewCompat @JvmOverloads constructor(
+open class WebViewCompat @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
     defStyleAttr: Int = 0,

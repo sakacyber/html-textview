@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <string name="app_name">HtmlTextView</string>
+    <string name="deTimeNews">DeTimeNews</string>
+    <string name="imageDescription">image</string>
+    <string name="menu_save">រក្សាទុក</string>
+    <string name="menuInfo">ព័ត៌មានលម្អិត</string>
+    <string name="msg_save_image">បានរក្សាទុករូបភាព</string>
+    <string name="msg_save_image_error">មានបញ្ហារក្សាទុករូបភាព</string>
+    <string name="msg_need_permission">ត្រូវការការសិទ្ធអនុញ្ញាតការផ្ទុកឯកសារ</string>
+    <string name="msg_permission_rational">ដើម្បីរក្សាទុករូបភាព ត្រូវការការសិទ្ធអនុញ្ញាតការផ្ទុកឯកសារ</string>
+
 </resources>
