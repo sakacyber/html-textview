@@ -18,11 +18,11 @@ import com.karumi.dexter.listener.PermissionDeniedResponse
 import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
-import com.muddzdev.quickshot.QuickShot
 import com.saka.android.htmltextview.R
 import com.saka.android.htmltextview.utility.findAllImageLinks
 import com.saka.android.htmltextview.utility.load
 import com.stfalcon.imageviewer.StfalconImageViewer
+import io.github.muddz.quickshot.QuickShot
 
 class ImageActivity : AppCompatActivity(), OverlayView.EventCallback, PermissionListener {
 
@@ -103,7 +103,7 @@ class ImageActivity : AppCompatActivity(), OverlayView.EventCallback, Permission
             ).show()
         }
 
-        override fun onQuickShotFailed(path: String?) {
+        override fun onQuickShotFailed(path: String?, errorMsg: String?) {
         }
     }
 

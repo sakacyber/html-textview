@@ -1,20 +1,19 @@
 package com.saka.android.htmltextview.activity
 
-import android.net.Uri
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ExoPlayer
+import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.source.ProgressiveMediaSource
 import com.google.android.exoplayer2.ui.PlayerView
-import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory
-import com.google.android.exoplayer2.util.Util
+import com.google.android.exoplayer2.upstream.DefaultDataSource
 import com.saka.android.htmltextview.R
 
 class VideoActivity : AppCompatActivity() {
 
-    private var player: SimpleExoPlayer? = null
+    private var player: ExoPlayer? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,7 +23,7 @@ class VideoActivity : AppCompatActivity() {
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val link = intent.getStringExtra("link")
+        val link = intent.getStringExtra("link") ?: ""
 
         // create player view
         val playerView = findViewById<PlayerView>(R.id.playerView)
@@ -34,14 +33,14 @@ class VideoActivity : AppCompatActivity() {
         }
 
         // create media source
-        val dataSourceFactory =
-            DefaultDataSourceFactory(this, Util.getUserAgent(this, packageName))
-        val mediaSource =
-            ProgressiveMediaSource.Factory(dataSourceFactory).createMediaSource(Uri.parse(link))
+        val dataSourceFactory = DefaultDataSource.Factory(this)
+        val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
+            .createMediaSource(MediaItem.fromUri(link))
 
         // create player
-        player = SimpleExoPlayer.Builder(this).build()
-        player?.prepare(mediaSource)
+        player = ExoPlayer.Builder(this).build()
+        player?.setMediaSource(mediaSource)
+        player?.prepare()
         player?.playWhenReady = true
         playerView.player = player
     }
