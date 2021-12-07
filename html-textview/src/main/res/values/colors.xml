@@ -4,5 +4,9 @@
     <color name="colorBackground">#DDDDDD</color>
     <color name="colorTextPrimary">#333333</color>
     <color name="colorTextSecondary">#808080</color>
+    <color name="colorPlaceholder">#fafafa</color>
+    <color name="colorOverlay">#E6000000</color>
+    <color name="colorTopBarOverlay">#4D000000</color>
+    <color name="colorRipple">#39474747</color>
 
 </resources>

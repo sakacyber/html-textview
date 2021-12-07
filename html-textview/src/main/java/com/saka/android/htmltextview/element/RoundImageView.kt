@@ -1,10 +1,11 @@
-package com.saka.android.htmltextview
+package com.saka.android.htmltextview.element
 
 import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Path
 import android.graphics.RectF
 import android.util.AttributeSet
+import com.saka.android.htmltextview.utility.Conf
 
 class RoundImageView @JvmOverloads constructor(
     context: Context,
@@ -12,7 +13,7 @@ class RoundImageView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : androidx.appcompat.widget.AppCompatImageView(context, attrs, defStyleAttr) {
 
-    private var radius = DEFAULT_CORNER
+    private var radius = Conf.imageRoundCorner
     private var rect: RectF = RectF()
     private var path: Path = Path()
 
@@ -21,9 +22,5 @@ class RoundImageView @JvmOverloads constructor(
         path.addRoundRect(rect, radius, radius, Path.Direction.CW)
         canvas?.clipPath(path)
         super.onDraw(canvas)
-    }
-
-    companion object {
-        private const val DEFAULT_CORNER = 18F
     }
 }

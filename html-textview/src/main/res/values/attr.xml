@@ -2,9 +2,13 @@
 <resources>
 
     <declare-styleable name="HtmlTextView">
+        <attr name="htmlContent" format="string" />
         <attr name="htmlTextSize" format="dimension" />
         <attr name="htmlTextColor" format="reference|color" />
-        <attr name="htmlLineSpacing" format="reference|float" />
+        <attr name="htmlTextPadding" format="dimension" />
+        <attr name="htmlLineSpacing" format="dimension" />
+        <attr name="htmlImageRound" format="dimension" />
+        <attr name="htmlTextFontFamily" format="string" />
     </declare-styleable>
 
 </resources>
