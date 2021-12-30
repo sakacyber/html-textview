@@ -2,7 +2,8 @@ apply plugin: "com.android.library"
 apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
-group = "com.github.SakaGamer"
+group = "com.github.sakacyber"
+version = "1.0.10"
 
 android {
 
@@ -60,6 +61,6 @@ dependencies {
     implementation "com.karumi:dexter:6.2.2"
 
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$testJunitVersion"
+    androidTestImplementation "androidx.test:runner:$testRuner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$testEspressoVersion"
 }

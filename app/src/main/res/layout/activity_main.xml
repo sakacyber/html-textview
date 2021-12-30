@@ -14,7 +14,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.saka.android.htmltextview.HtmlTextView
+        <com.sakacyber.android.htmltextview.HtmlTextView
             android:id="@+id/htmlTextView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
