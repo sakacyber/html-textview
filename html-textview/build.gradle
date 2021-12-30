@@ -3,7 +3,7 @@ apply plugin: "kotlin-android"
 apply plugin: "kotlin-kapt"
 
 group = "com.github.sakacyber"
-version = "1.0.10"
+version = "1.0.12"
 
 android {
 
