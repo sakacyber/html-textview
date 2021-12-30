@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.saka.android.htmltextview">
+    package="com.sakacyber.android.htmltextview">
 
     <application android:label="@string/app_name">
 
         <activity
-            android:name=".activity.ImageActivity"
+            android:name="com.sakacyber.android.htmltextview.activity.ImageActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="fullSensor"
             android:theme="@style/Image" />
 
         <activity
-            android:name=".activity.VideoActivity"
+            android:name="com.sakacyber.android.htmltextview.activity.VideoActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="fullSensor"
             android:theme="@style/Video" />

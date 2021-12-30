@@ -2,11 +2,12 @@ apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
 android {
+
     compileSdkVersion 31
 
     defaultConfig {
-        applicationId "com.saka.android.htmltextview"
-        minSdkVersion 21
+        applicationId "com.sakacyber.android.sample"
+        minSdkVersion 23
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
@@ -42,6 +43,6 @@ dependencies {
     implementation project(":html-textview")
 
     testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$testJunitVersion"
+    androidTestImplementation "androidx.test:runner:$testRuner"
     androidTestImplementation "androidx.test.espresso:espresso-core:$testEspressoVersion"
 }
