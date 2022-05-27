@@ -1,8 +1,9 @@
-[![](https://jitpack.io/v/SakaGamer/html-textview.svg)](https://jitpack.io/#SakaGamer/html-textview)
+[![](https://jitpack.io/v/sakacyber/html-textview.svg)](https://jitpack.io/#sakacyber/html-textview)
 
 # HtmlTextView
 
-**HtmlTextView** is a library for display html content in android. It also support dark mode.
+**HtmlTextView** is an Android library for display html content as view. 
+**HtmlTextView** supports dark mode/light mode base on system.
 
 Support tag base on build in [Html.fromHtml (String source,
                 int flags)](https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String,%20int)) in android
@@ -37,21 +38,20 @@ It currently supports tags </>:
 Add dependency:
 
 ```
-implementation 'com.github.SakaGamer:html-textview:1.0.8'
+implementation "com.github.SakaGamer:html-textview:1.0.13"
 ```
 
 ## Usage
 to use **HtmlTextView**:
 
 ```
-// in xml
+// xml
 <com.saka.android.htmltextview.HtmlTextView
     android:id="@+id/htmlTextView"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp" />
 
-
-// in activity or fragment
+// activity or fragment
 htmlTextView.setText(html)
 ```
