@@ -2,7 +2,8 @@ package com.sakacyber.android.sample
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.sakacyber.android.htmltextview.HtmlTextView
+import androidx.lifecycle.lifecycleScope
+import com.saka.android.htmltextview.HtmlTextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +12,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val content = Content.deserialize(this)
-        findViewById<HtmlTextView>(R.id.htmlTextView).setText(content?.content)
+        findViewById<HtmlTextView>(R.id.htmlTextView).setText(content?.content, lifecycleScope)
     }
-
 }
