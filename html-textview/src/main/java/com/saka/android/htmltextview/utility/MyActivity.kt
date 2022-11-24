@@ -15,24 +15,24 @@ import com.saka.android.htmltextview.R.id
 import com.saka.android.htmltextview.R.layout
 
 class MyActivity : Activity() {
-    
+
     private var webView: WebView? = null
     private var customViewContainer: FrameLayout? = null
     private var customViewCallback: CustomViewCallback? = null
     private var mCustomView: View? = null
     private var mWebChromeClient: MyWebChromeClient? = null
-    
+
     @SuppressLint("SetJavaScriptEnabled")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(layout.main)
         customViewContainer = findViewById(id.customViewContainer)
         webView = findViewById(id.webView)
-        
+
         val webView = webView ?: return
         val link = intent.getStringExtra("link")
         val mWebViewClient = MyWebViewClient()
-        
+
         webView.webViewClient = mWebViewClient
         mWebChromeClient = MyWebChromeClient()
         webView.webChromeClient = mWebChromeClient
@@ -64,32 +64,32 @@ class MyActivity : Activity() {
                 </html>"""
         webView.loadData(url, "text/html", "UTF-8")
     }
-    
+
     private fun inCustomView(): Boolean {
         return mCustomView != null
     }
-    
+
     private fun hideCustomView() {
         mWebChromeClient?.onHideCustomView()
     }
-    
+
     override fun onPause() {
         super.onPause()
         webView?.onPause()
     }
-    
+
     override fun onResume() {
         super.onResume()
         webView?.onResume()
     }
-    
+
     override fun onStop() {
         super.onStop()
         if (inCustomView()) {
             hideCustomView()
         }
     }
-    
+
     override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
             if (inCustomView()) {
@@ -103,12 +103,12 @@ class MyActivity : Activity() {
         }
         return super.onKeyDown(keyCode, event)
     }
-    
+
     internal inner class MyWebChromeClient : WebChromeClient() {
-        
+
         // private val mDefaultVideoPoster: Bitmap? = null
         private var mVideoProgressView: View? = null
-        
+
         override fun onShowCustomView(view: View, callback: CustomViewCallback) {
             // if a view already exists then immediately terminate the new one
             if (mCustomView != null) {
@@ -121,7 +121,7 @@ class MyActivity : Activity() {
             customViewContainer?.addView(view)
             customViewCallback = callback
         }
-        
+
         override fun getVideoLoadingProgressView(): View? {
             if (mVideoProgressView == null) {
                 val inflater = LayoutInflater.from(this@MyActivity)
@@ -129,23 +129,23 @@ class MyActivity : Activity() {
             }
             return mVideoProgressView
         }
-        
+
         override fun onHideCustomView() {
             super.onHideCustomView()
-            
+
             if (mCustomView == null) return
             webView?.visibility = View.VISIBLE
             customViewContainer?.visibility = View.GONE
-            
+
             // Hide the custom view.
             mCustomView?.visibility = View.GONE
-            
+
             // Remove the custom view from its container.
             customViewContainer?.removeView(mCustomView)
             customViewCallback?.onCustomViewHidden()
             mCustomView = null
         }
     }
-    
+
     internal class MyWebViewClient : WebViewClient()
 }

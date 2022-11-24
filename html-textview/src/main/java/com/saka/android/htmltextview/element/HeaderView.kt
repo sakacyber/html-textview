@@ -15,13 +15,13 @@ class HeaderView @JvmOverloads constructor(
     content: String = "",
     coroutineScope: CoroutineScope? = null
 ) : BaseElement(context, attrs, defStyleAttr, element, content, coroutineScope) {
-    
+
     override fun render() {
         orientation = VERTICAL
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
         setContent()
     }
-    
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun setContent() {
         val webView = WebViewCompat(context)

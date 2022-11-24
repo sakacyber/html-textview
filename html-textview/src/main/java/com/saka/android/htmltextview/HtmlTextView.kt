@@ -3,6 +3,7 @@ package com.saka.android.htmltextview
 import android.content.Context
 import android.util.AttributeSet
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import androidx.core.widget.NestedScrollView
 import androidx.lifecycle.LifecycleCoroutineScope
 import com.saka.android.htmltextview.utility.Conf
@@ -13,9 +14,9 @@ import org.jsoup.Jsoup
 class HtmlTextView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
-    defStyleAttr: Int = 0,
+    defStyleAttr: Int = 0
 ) : NestedScrollView(context, attrs, defStyleAttr) {
-    
+
     init {
         val typeArray = context.obtainStyledAttributes(
             attrs,
@@ -24,6 +25,10 @@ class HtmlTextView @JvmOverloads constructor(
         Conf.textSize = typeArray.getDimension(
             R.styleable.HtmlTextView_htmlTextSize,
             Conf.DEF_TEXT_SIZE
+        )
+        Conf.textColor = typeArray.getColor(
+            R.styleable.HtmlTextView_htmlTextColor,
+            ContextCompat.getColor(context, R.color.colorTextPrimary)
         )
         Conf.textLineSpacing = typeArray.getDimension(
             R.styleable.HtmlTextView_htmlLineSpacing,
@@ -40,7 +45,7 @@ class HtmlTextView @JvmOverloads constructor(
         htmlContent = typeArray.getString(R.styleable.HtmlTextView_htmlContent) ?: ""
         typeArray.recycle()
     }
-    
+
     fun setText(html: String?, lifecycle: LifecycleCoroutineScope) {
         htmlContent = html ?: return
         val children = Jsoup.parse(htmlContent).body().children()

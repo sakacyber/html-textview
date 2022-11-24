@@ -16,7 +16,7 @@ class BlockQuoteView @JvmOverloads constructor(
     content: String = "",
     coroutineScope: CoroutineScope? = null
 ) : BaseElement(context, attrs, defStyleAttr, element, content, coroutineScope) {
-    
+
     override fun render() {
         orientation = VERTICAL
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
@@ -31,7 +31,7 @@ class BlockQuoteView @JvmOverloads constructor(
         }
         setText()
     }
-    
+
     private fun setText() {
         val paragraphView = TextView(context)
         paragraphView.setTypeface(paragraphView.typeface, Typeface.ITALIC)

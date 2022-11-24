@@ -16,12 +16,12 @@ import org.jsoup.Jsoup
 import org.jsoup.select.Elements
 
 object EManager {
-    
+
     fun appendView(
         view: ViewGroup,
         elements: Elements,
         content: String = "",
-        coroutineScope: CoroutineScope?,
+        coroutineScope: CoroutineScope?
     ) {
         var child: BaseElement
         for (e in elements) {
@@ -31,7 +31,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "h" -> {
@@ -39,7 +39,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "iframe" -> {
@@ -47,7 +47,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "p" -> {
@@ -55,7 +55,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "img" -> {
@@ -63,7 +63,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "div" -> {
@@ -71,7 +71,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "table" -> {
@@ -79,7 +79,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "ul" -> {
@@ -87,7 +87,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 "ol" -> {
@@ -95,7 +95,7 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
                 else -> {
@@ -103,19 +103,19 @@ object EManager {
                         context = view.context,
                         element = e,
                         content = content,
-                        coroutineScope = coroutineScope,
+                        coroutineScope = coroutineScope
                     )
                 }
             }
             view.addView(child)
         }
     }
-    
+
     fun dpToPx(context: Context, dp: Int): Float {
         val displayMetrics = context.resources.displayMetrics
         return (dp * (displayMetrics.xdpi / DisplayMetrics.DENSITY_DEFAULT))
     }
-    
+
     fun findAllVideoLinks(content: String?): List<String> {
         content ?: return emptyList()
         val links: MutableList<String> = ArrayList()
@@ -128,7 +128,7 @@ object EManager {
         }
         return links
     }
-    
+
     fun findAllImagesLinks(content: String?): List<String> {
         content ?: return emptyList()
         val links: MutableList<String> = ArrayList()

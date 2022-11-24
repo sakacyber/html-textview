@@ -1,16 +1,18 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
+def versionNameStr = "1.0.14"
+
 android {
 
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     defaultConfig {
         applicationId "com.sakacyber.android.sample"
         minSdkVersion 23
-        targetSdkVersion 31
-        versionCode 13
-        versionName "1.0.13"
+        targetSdkVersion 33
+        versionCode 14
+        versionName versionNameStr
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -30,7 +32,7 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
-
+    namespace "com.sakacyber.android.sample"
 }
 
 dependencies {

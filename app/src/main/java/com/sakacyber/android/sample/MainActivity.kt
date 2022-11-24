@@ -1,7 +1,7 @@
 package com.sakacyber.android.sample
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.saka.android.htmltextview.HtmlTextView
 
