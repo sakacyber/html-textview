@@ -30,18 +30,18 @@ class IFrameView @JvmOverloads constructor(
     content: String = "",
     coroutineScope: CoroutineScope? = null
 ) : BaseElement(context, attrs, defStyleAttr, element, content, coroutineScope) {
-    
+
     private var isInProgress = false
-    
+
     companion object {
         const val BASE_URL = "http://13.250.71.15:81"
     }
-    
+
     override fun render() {
         orientation = VERTICAL
         setContent()
     }
-    
+
     @SuppressLint("ClickableViewAccessibility")
     private fun setContent() {
         link?.let {
@@ -52,7 +52,7 @@ class IFrameView @JvmOverloads constructor(
                 imagePreview.setImageDrawable(
                     ContextCompat.getDrawable(context, R.drawable.img_holder)
                 )
-                
+
                 scope?.launch {
                     it.loadBitmap { bitmap ->
                         imagePreview.background = BitmapDrawable(Resources.getSystem(), bitmap)
@@ -61,12 +61,13 @@ class IFrameView @JvmOverloads constructor(
                                 ContextCompat.getDrawable(
                                     imagePreview.context,
                                     R.drawable.ic_play_circle_24
-                                ), 80
+                                ),
+                                80
                             )
                         )
                     }
                 }
-                
+
                 addView(imagePreview)
                 setOnClickListener {
                     startVideoPlayer()
@@ -122,7 +123,7 @@ class IFrameView @JvmOverloads constructor(
             }
         }
     }
-    
+
     private fun startVideoPlayer() {
         if (isInProgress) return
         isInProgress = true
@@ -130,12 +131,12 @@ class IFrameView @JvmOverloads constructor(
             .putExtra("link", link)
         ContextCompat.startActivity(context, intent, null)
     }
-    
+
     override fun onWindowFocusChanged(hasWindowFocus: Boolean) {
         super.onWindowFocusChanged(hasWindowFocus)
         if (hasWindowFocus) isInProgress = false
     }
-    
+
     private val link: String?
         get() = element?.attr("abs:src")
 }

@@ -3,7 +3,6 @@ package com.saka.android.htmltextview.utility
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.media.MediaMetadataRetriever
-import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -11,7 +10,7 @@ import kotlinx.coroutines.withContext
 import java.net.URL
 
 suspend fun String?.loadBitmap(
-    onPostExecute: (Bitmap?) -> Unit,
+    onPostExecute: (Bitmap?) -> Unit
 ) {
     val url = this ?: return
     var bitmap: Bitmap? = null
@@ -46,7 +45,7 @@ suspend fun String?.loadBitmap(
 fun <R> CoroutineScope.executeAsyncTask(
     onPreExecute: () -> Unit,
     doInBackground: () -> R,
-    onPostExecute: (R) -> Unit,
+    onPostExecute: (R) -> Unit
 ) = launch {
     onPreExecute()
     val result =

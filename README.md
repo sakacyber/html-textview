@@ -33,12 +33,12 @@ It currently supports tags </>:
 * ```<u>```
 
 ## Quick Start
-**HtmlTextView** is availble on jitpack.
+**HtmlTextView** is available on jitpack.
 
 Add dependency:
 
 ```
-implementation "com.github.sakacyber:html-textview:1.0.13"
+implementation "com.github.sakacyber:html-textview:1.0.14"
 ```
 
 ## Usage
@@ -53,5 +53,5 @@ to use **HtmlTextView**:
     android:padding="16dp" />
 
 // activity or fragment
-htmlTextView.setText(html)
+htmlTextView.setText(html, lifecycleScope)
 ```

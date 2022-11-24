@@ -21,7 +21,7 @@ class ParagraphView @JvmOverloads constructor(
     content: String = "",
     coroutineScope: CoroutineScope? = null
 ) : BaseElement(context, attrs, defStyleAttr, element, content, coroutineScope) {
-    
+
     override fun render() {
         orientation = VERTICAL
         layoutParams = LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT)
@@ -36,11 +36,17 @@ class ParagraphView @JvmOverloads constructor(
         }
         setText()
     }
-    
+
     private fun setText() {
         val paragraphView = TextView(context)
         paragraphView.autoLinkMask = Linkify.ALL
-        paragraphView.setTextColor(ContextCompat.getColor(context, R.color.colorTextPrimary))
+        paragraphView.setTextColor(
+            if (Conf.textColor != 0) {
+                Conf.textColor
+            } else {
+                ContextCompat.getColor(context, R.color.colorTextPrimary)
+            }
+        )
         paragraphView.typeface = ResourcesCompat.getFont(context, R.font.font_battambang_regular)
 //        val paragraphView = View.inflate(context, R.layout.paragraph_view, null) as TextView
 //         paragraphView.setTextSize(TypedValue.COMPLEX_UNIT_PX, Conf.textSize)

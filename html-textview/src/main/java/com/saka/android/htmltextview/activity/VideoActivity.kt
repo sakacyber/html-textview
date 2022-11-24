@@ -20,16 +20,16 @@ import com.saka.android.htmltextview.R
 import com.saka.android.htmltextview.utility.VideoLoader
 
 class VideoActivity : AppCompatActivity() {
-    
+
     private var player: ExoPlayer? = null
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
         setContentView(R.layout.activity_video)
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
-        
+
         val youTubePlayerView = findViewById<YouTubePlayerView>(R.id.youtube_player_view)
         val playerView = findViewById<StyledPlayerView>(R.id.playerView)
         val webView = findViewById<WebView>(R.id.webView)
@@ -47,20 +47,22 @@ class VideoActivity : AppCompatActivity() {
             }
         }
     }
-    
+
     private fun loadExoPlayer(link: String, playerView: StyledPlayerView, toolbar: Toolbar) {
         // create player view
         playerView.setShowBuffering(StyledPlayerView.SHOW_BUFFERING_WHEN_PLAYING)
-        playerView.setControllerVisibilityListener { visibility ->
-            toolbar.visibility = visibility
-        }
-        
+        playerView.setControllerVisibilityListener(
+            StyledPlayerView.ControllerVisibilityListener {
+                toolbar.visibility = it
+            }
+        )
+
         // create media source
         val dataSourceFactory = DefaultDataSource.Factory(this)
         val mediaItem = MediaItem.fromUri(link)
         val mediaSource = ProgressiveMediaSource.Factory(dataSourceFactory)
             .createMediaSource(mediaItem)
-        
+
         // create player
         player = ExoPlayer.Builder(this).build()
         player?.setMediaSource(mediaSource)
@@ -68,7 +70,7 @@ class VideoActivity : AppCompatActivity() {
         player?.playWhenReady = true
         playerView.player = player
     }
-    
+
     private fun loadYoutubePlayer(
         videoId: String?,
         playerView: YouTubePlayerView,
@@ -83,7 +85,7 @@ class VideoActivity : AppCompatActivity() {
             }
         })
     }
-    
+
     @SuppressLint("SetJavaScriptEnabled")
     private fun loadIFrameWebView(link: String, webView: WebView) {
         webView.settings.javaScriptEnabled = true
@@ -93,19 +95,19 @@ class VideoActivity : AppCompatActivity() {
         )
         webView.loadData(encodedHtml, "text/html", "base64")
     }
-    
+
     override fun onSupportNavigateUp(): Boolean {
         finish()
         return super.onSupportNavigateUp()
     }
-    
+
     override fun onPause() {
         super.onPause()
         if (player != null) {
             player?.playWhenReady = false
         }
     }
-    
+
     override fun onDestroy() {
         super.onDestroy()
         if (player != null) {
