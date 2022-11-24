@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">HtmlTextView</string>
-    <string name="deTimeNews">DeTimeNews</string>
+    <string name="kangSaKur">KangSakur</string>
     <string name="imageDescription">image</string>
     <string name="menu_save">រក្សាទុក</string>
     <string name="menuInfo">ព័ត៌មានលម្អិត</string>
