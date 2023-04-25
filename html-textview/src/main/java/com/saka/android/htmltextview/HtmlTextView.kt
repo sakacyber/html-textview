@@ -56,4 +56,8 @@ class HtmlTextView @JvmOverloads constructor(
             EManager.appendView(linearLayout, children, htmlContent, lifecycle)
         }
     }
+
+    fun updateTextSize(fontSize: Float) {
+        EManager.updateParagraphFontSize(fontSize)
+    }
 }
