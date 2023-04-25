@@ -8,7 +8,7 @@ import com.saka.android.htmltextview.HtmlTextView
 
 class MainActivity : AppCompatActivity() {
 
-    var fontLarge = false
+    private var fontLarge = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
