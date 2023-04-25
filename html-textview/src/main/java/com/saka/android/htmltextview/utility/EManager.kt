@@ -17,6 +17,8 @@ import org.jsoup.select.Elements
 
 object EManager {
 
+    val listElement = mutableListOf<BaseElement>()
+
     fun appendView(
         view: ViewGroup,
         elements: Elements,
@@ -34,6 +36,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "h" -> {
                     child = HeaderView(
                         context = view.context,
@@ -42,6 +45,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "iframe" -> {
                     child = IFrameView(
                         context = view.context,
@@ -50,6 +54,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "p" -> {
                     child = ParagraphView(
                         context = view.context,
@@ -58,6 +63,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "img" -> {
                     child = ImageView(
                         context = view.context,
@@ -66,6 +72,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "div" -> {
                     child = DivView(
                         context = view.context,
@@ -74,6 +81,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "table" -> {
                     child = WebView(
                         context = view.context,
@@ -82,6 +90,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "ul" -> {
                     child = WebView(
                         context = view.context,
@@ -90,6 +99,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 "ol" -> {
                     child = WebView(
                         context = view.context,
@@ -98,6 +108,7 @@ object EManager {
                         coroutineScope = coroutineScope
                     )
                 }
+
                 else -> {
                     child = HeaderView(
                         context = view.context,
@@ -108,6 +119,13 @@ object EManager {
                 }
             }
             view.addView(child)
+            listElement.add(child)
+        }
+    }
+
+    fun updateParagraphFontSize(fontSize: Float) {
+        listElement.filterIsInstance<ParagraphView>().forEach {
+            it.updateFontSize(fontSize)
         }
     }
 

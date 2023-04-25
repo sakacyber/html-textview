@@ -3,7 +3,7 @@ package com.saka.android.htmltextview.utility
 object Conf {
 
     // default
-    const val DEF_TEXT_SIZE = 12f
+    const val DEF_TEXT_SIZE = 14f
     const val DEF_TEXT_COLOR = 0
     const val DEF_LINE_SPACING = 0f
     const val DEF_IMAGE_ROUND = 0f
