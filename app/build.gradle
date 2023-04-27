@@ -1,7 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "kotlin-android"
 
-def versionNameStr = "1.0.14"
+def versionNameStr = "1.0.15"
 
 android {
 
@@ -18,12 +18,12 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
 
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 
     buildTypes {
@@ -32,6 +32,11 @@ android {
             proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     namespace "com.sakacyber.android.sample"
 }
 
@@ -40,9 +45,9 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation "androidx.core:core-ktx:$coreVersion"
     implementation "androidx.constraintlayout:constraintlayout:$constrainLayoutVersion"
-    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.4.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
 
-    implementation "com.google.code.gson:gson:2.8.9"
+    implementation 'com.google.code.gson:gson:2.10.1'
     implementation project(":html-textview")
 
     testImplementation "junit:junit:$junitVersion"

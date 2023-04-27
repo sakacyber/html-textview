@@ -8,37 +8,13 @@
 Support tag base on build in [Html.fromHtml (String source,
                 int flags)](https://developer.android.com/reference/android/text/Html#fromHtml(java.lang.String,%20int)) in android
 
-It currently supports tags </>:
-
-* ```<iframe>```
-* ```<a href="...">```
-* ```<b>```
-* ```<big>```
-* ```<blockquote>```
-* ```<br>```
-* ```<cite>```
-* ```<dfn>```
-* ```<div align="...">```
-* ```<em>```
-* ```<font size="..." color="..." face="...">```
-* ```<i>```
-* ```<img src="...">```
-* ```<p>```
-* ```<small>```
-* ```<strike>```
-* ```<strong>```
-* ```<sub>```
-* ```<sup>```
-* ```<tt>```
-* ```<u>```
-
 ## Quick Start
 **HtmlTextView** is available on jitpack.
 
 Add dependency:
 
 ```
-implementation "com.github.sakacyber:html-textview:1.0.14"
+implementation "com.github.sakacyber:html-textview:1.0.15"
 ```
 
 ## Usage
@@ -54,4 +30,9 @@ to use **HtmlTextView**:
 
 // activity or fragment
 htmlTextView.setText(html, lifecycleScope)
+```
+to update text size
+```
+// size in dp
+htmlTextView.updateTextSize(18f)
 ```

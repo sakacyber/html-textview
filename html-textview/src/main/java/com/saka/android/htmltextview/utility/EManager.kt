@@ -17,7 +17,7 @@ import org.jsoup.select.Elements
 
 object EManager {
 
-    val listElement = mutableListOf<BaseElement>()
+    private val listElement = mutableListOf<BaseElement>()
 
     fun appendView(
         view: ViewGroup,
@@ -124,8 +124,8 @@ object EManager {
     }
 
     fun updateParagraphFontSize(fontSize: Float) {
-        listElement.filterIsInstance<ParagraphView>().forEach {
-            it.updateFontSize(fontSize)
+        listElement.filterIsInstance<ParagraphView>().forEach { par ->
+            par.updateFontSize(fontSize)
         }
     }
 
