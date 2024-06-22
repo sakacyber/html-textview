@@ -2,41 +2,27 @@
 buildscript {
 
     ext { 
-        kotlinVersion = "1.8.0"
-        appCompatVersion = "1.6.1"
-        coreVersion = "1.10.0"
+        kotlinVersion = "1.9.0"
+        appCompatVersion = "1.7.0"
+        coreVersion = "1.13.1"
         constrainLayoutVersion = "2.1.4"
-        lifecycleVersion = "2.6.1"
+        lifecycleVersion = "2.8.2"
 
         junitVersion = "4.13.2"
-        testRuner = "1.4.0"
-        testEspressoVersion = "3.4.0"
-    }
-
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.0.0'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "com.github.dcendents:android-maven-gradle-plugin:2.1"
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        testRuner = "1.5.2"
+        testEspressoVersion = "3.5.1"
     }
 }
 
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
-    }
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+plugins {
+    id "com.android.application" version '8.5.0' apply false
+    id "com.android.library" version '8.5.0' apply false
+    id "org.jetbrains.kotlin.android" version "$kotlinVersion" apply false
+    id "com.google.dagger.hilt.android" version "2.42" apply false
+    id("com.google.devtools.ksp") version "1.9.0-1.0.12" apply false
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+tasks.register('clean', Delete) {
+    delete rootProject.buildFile
 }

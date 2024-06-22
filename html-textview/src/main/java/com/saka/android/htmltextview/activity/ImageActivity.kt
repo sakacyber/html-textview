@@ -1,8 +1,10 @@
 package com.saka.android.htmltextview.activity
 
 import android.Manifest
+import android.app.Activity
 import android.content.pm.PackageManager
 import android.graphics.drawable.Drawable
+import android.os.Build
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.Toast
@@ -67,7 +69,15 @@ class ImageActivity : AppCompatActivity(), OverlayView.EventCallback, Permission
 
     private fun finishOverlay() {
         finish()
-        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        if (Build.VERSION.SDK_INT >= 33) {
+            overridePendingTransition(
+                Activity.OVERRIDE_TRANSITION_OPEN,
+                android.R.anim.fade_in,
+                android.R.anim.fade_out
+            )
+        } else {
+            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+        }
     }
 
     override fun onSaveClick() {

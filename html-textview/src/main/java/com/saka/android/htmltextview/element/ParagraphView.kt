@@ -23,7 +23,7 @@ class ParagraphView @JvmOverloads constructor(
     coroutineScope: CoroutineScope? = null
 ) : BaseElement(context, attrs, defStyleAttr, element, content, coroutineScope) {
 
-    lateinit var paragraphView: TextView
+    private lateinit var paragraphView: TextView
 
     override fun render() {
         orientation = VERTICAL

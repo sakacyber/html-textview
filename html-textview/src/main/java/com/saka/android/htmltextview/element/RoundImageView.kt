@@ -17,10 +17,10 @@ class RoundImageView @JvmOverloads constructor(
     private var rect: RectF = RectF()
     private var path: Path = Path()
 
-    override fun onDraw(canvas: Canvas?) {
+    override fun onDraw(canvas: Canvas) {
         rect.set(0f, 0f, width.toFloat(), height.toFloat())
         path.addRoundRect(rect, radius, radius, Path.Direction.CW)
-        canvas?.clipPath(path)
+        canvas.clipPath(path)
         super.onDraw(canvas)
     }
 }

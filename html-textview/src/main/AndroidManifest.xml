@@ -6,13 +6,11 @@
         <activity
             android:name=".activity.ImageActivity"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="fullSensor"
             android:theme="@style/Image" />
 
         <activity
             android:name=".activity.VideoActivity"
             android:configChanges="orientation|screenSize"
-            android:screenOrientation="fullSensor"
             android:theme="@style/Video" />
 
         <activity android:name=".utility.MyActivity" />
